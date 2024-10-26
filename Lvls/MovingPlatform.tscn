@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://csf4o7vxnlnbo"]
+[gd_scene load_steps=11 format=3 uid="uid://csf4o7vxnlnbo"]
 
 [ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="2_2ybw0"]
 [ext_resource type="Script" path="res://Scripts/moving.gd" id="2_d1jt5"]
 [ext_resource type="Script" path="res://Scripts/moving_platform_x_direction.gd" id="3_etcho"]
 [ext_resource type="Script" path="res://Scripts/moving_platform_y_direction.gd" id="4_d867c"]
+[ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="5_np40y"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t62m2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -40,6 +41,7 @@ use_collision = true
 size = Vector3(2.0383, 1, 1)
 
 [node name="Start Point" type="CSGBox3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
 use_collision = true
 
 [node name="MovingPlatform" type="CharacterBody3D" parent="."]
@@ -111,3 +113,5 @@ shape = SubResource("BoxShape3D_vbi4t")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="NonMovingBlock2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.368576, 0, 0)
 mesh = SubResource("BoxMesh_mdfwp")
+
+[node name="Camera Setup" parent="." instance=ExtResource("5_np40y")]
