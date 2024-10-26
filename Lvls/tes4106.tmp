@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://datb5jxyatq13"]
+
+[ext_resource type="Script" path="res://Scripts/Initialisation.gd" id="1_4sfg0"]
+[ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="1_fgs5g"]
+[ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="2_nbpvl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wabp8"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_dcnc5"]
+sky_material = SubResource("ProceduralSkyMaterial_wabp8")
+
+[sub_resource type="Environment" id="Environment_54ttb"]
+background_mode = 2
+sky = SubResource("Sky_dcnc5")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Test_Scene" type="Node3D"]
+script = ExtResource("1_4sfg0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_54ttb")
+
+[node name="Terrain" type="Node" parent="."]
+
+[node name="Blocks" type="Node" parent="Terrain"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+use_collision = true
+size = Vector3(20, 10, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, -5, -15)
+use_collision = true
+size = Vector3(10, 10, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+use_collision = true
+size = Vector3(20, 0.2, 10)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.9)
+use_collision = true
+size = Vector3(19.8, 3, 0.2)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -7.5)
+use_collision = true
+size = Vector3(5, 0.2, 5)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, 0)
+use_collision = true
+size = Vector3(0.2, 3, 10)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, 0)
+use_collision = true
+size = Vector3(0.2, 3, 10)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -5, -15)
+use_collision = true
+size = Vector3(3, 10, 5)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5, -5, -15)
+use_collision = true
+size = Vector3(3, 10, 5)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Terrain/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -5, -30)
+use_collision = true
+size = Vector3(5, 10, 35)
+
+[node name="Walls" type="Node" parent="Terrain"]
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Terrain/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -3.5, -14)
+use_collision = true
+size = Vector3(0.2, 13, 18)
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Terrain/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, -3.5, -30)
+use_collision = true
+size = Vector3(0.2, 13, 40)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Terrain/Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, -3.5, -7.6)
+use_collision = true
+size = Vector3(0.2, 13, 5.1)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Terrain/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23, -3.5, -10.05)
+use_collision = true
+size = Vector3(0.2, 13, 26)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Terrain/Walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.5, -3.5, -23)
+use_collision = true
+size = Vector3(0.2, 13, 35)
+
+[node name="Player" parent="." instance=ExtResource("1_fgs5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="Camera Setup" parent="." instance=ExtResource("2_nbpvl")]
