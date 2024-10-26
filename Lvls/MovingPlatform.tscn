@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://csf4o7vxnlnbo"]
 
 [ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="2_2ybw0"]
-[ext_resource type="Script" path="res://Lvls/moving.gd" id="2_d1jt5"]
-[ext_resource type="Script" path="res://Lvls/moving_platform_x_direction.gd" id="3_etcho"]
-[ext_resource type="Script" path="res://Lvls/moving_platform_y_direction.gd" id="4_d867c"]
+[ext_resource type="Script" path="res://Scripts/moving.gd" id="2_d1jt5"]
+[ext_resource type="Script" path="res://Scripts/moving_platform_x_direction.gd" id="3_etcho"]
+[ext_resource type="Script" path="res://Scripts/moving_platform_y_direction.gd" id="4_d867c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t62m2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

@@ -3,11 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-<<<<<<< Updated upstream
-uid="uid://b2uwgqqmyl2ex"
-=======
-uid="uid://uibvwkm7604l"
->>>>>>> Stashed changes
+uid="uid://kqf2kmi5y4w6"
 path="res://.godot/imported/DanielTheDuck7.glb-147e596a4d72880a676c5f9bb591dc2a.scn"
 
 [deps]
@@ -36,5 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=0
 gltf/embedded_image_handling=1

@@ -3,11 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-<<<<<<< Updated upstream
-uid="uid://d17t10ro1o7bs"
-=======
-uid="uid://bgfexwjvk6kec"
->>>>>>> Stashed changes
+uid="uid://bgvu47nxgysyb"
 path="res://.godot/imported/sword.glb-bba1ddeac6764dd28b73b19eac668ab0.scn"
 
 [deps]
@@ -36,5 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=1
+gltf/naming_version=0
 gltf/embedded_image_handling=1
