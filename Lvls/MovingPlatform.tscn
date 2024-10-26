@@ -50,11 +50,21 @@ shape = SubResource("BoxShape3D_vbi4t")
 mesh = SubResource("BoxMesh_mdfwp")
 
 [node name="MovingPlatform2" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.72519, 0.615, -2.53287)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0.615, -2.533)
 script = ExtResource("2_d1jt5")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatform2"]
 shape = SubResource("BoxShape3D_vbi4t")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlatform2"]
+mesh = SubResource("BoxMesh_mdfwp")
+
+[node name="MovingPlatform3" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0.615, -2.533)
+script = ExtResource("2_d1jt5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatform3"]
+shape = SubResource("BoxShape3D_vbi4t")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlatform3"]
 mesh = SubResource("BoxMesh_mdfwp")
