@@ -6,6 +6,8 @@ extends GridContainer
 @onready var Camera1: Camera3D = get_node("../Player/Camera3D")
 @onready var Camera2: Camera3D = get_node("../Player/Camera3D2")
 
+var bar_width = 20;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var Camera_rid1 = Camera1.get_camera_rid()
@@ -23,9 +25,9 @@ func _ready() -> void:
 func _on_viewport_resize() -> void:
 	var screen_size = DisplayServer.window_get_size();
 
-	viewport1.size = Vector2(screen_size.x/2-1,screen_size.y)
-	bar.scale = Vector2(4, screen_size.y * 2)
-	viewport2.size = Vector2(screen_size.x/2-1,screen_size.y)
+	viewport1.size = Vector2((screen_size.x/2)-(bar_width/2),screen_size.y)
+	bar.scale = Vector2(bar_width, screen_size.y * 2)
+	viewport2.size = Vector2((screen_size.x/2)-(bar_width/2),screen_size.y)
 	print(screen_size)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
