@@ -33,26 +33,40 @@ environment = SubResource("Environment_54ttb")
 snap = 0.1
 use_collision = true
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Terrain/CSGCombiner3D"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+use_collision = true
+size = Vector3(20, 10, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -15)
+use_collision = true
+size = Vector3(20, 10, 10)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+use_collision = true
 size = Vector3(20, 0.2, 10)
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Terrain/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
-size = Vector3(20, 0.2, 10)
+[node name="CSGBox3D4" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 4.9)
+use_collision = true
+size = Vector3(19.8, 3, 0.2)
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Terrain/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
-size = Vector3(20, 0.2, 10)
+[node name="CSGBox3D5" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -7.5)
+use_collision = true
+size = Vector3(5, 10, 5)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Terrain/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5)
-size = Vector3(20, 3, 0.2)
+[node name="CSGBox3D6" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5, 0)
+use_collision = true
+size = Vector3(0.2, 3, 10)
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Terrain/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.5)
-size = Vector3(5, 0.2, 5)
-
-[node name="CSGMesh3D" type="CSGMesh3D" parent="Terrain/CSGCombiner3D"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="Terrain"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.5, 0)
+use_collision = true
+size = Vector3(0.2, 3, 10)
 
 [node name="Player" parent="." instance=ExtResource("1_fgs5g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
