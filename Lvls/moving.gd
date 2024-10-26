@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-var velocityTing = 2.0
+var velocityTing = 4.0
 	
 func _physics_process(delta: float) -> void:
 	const bounds = 4.5
