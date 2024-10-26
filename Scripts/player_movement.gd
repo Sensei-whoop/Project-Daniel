@@ -47,8 +47,16 @@ func _physics_process(delta: float) -> void:
 	
 		
 	transform.basis = transform.basis.rotated(Vector3.UP, -mouse_rotation.x * delta * mouse_sensitivity)
-	$Camera3D.basis = $Camera3D.basis.rotated(cam1vector, -mouse_rotation.y * delta * mouse_sensitivity)
-	$Camera3D2.basis = $Camera3D2.basis.rotated(cam2vector, -mouse_rotation.y * delta * mouse_sensitivity)
+	
+	var yval = -mouse_rotation.y * delta * mouse_sensitivity	
+	$Camera3D.basis = $Camera3D.basis.rotated(cam1vector, yval)
+	$Camera3D2.basis = $Camera3D2.basis.rotated(cam2vector, yval)
+	
+	# clamping is bypassed with super high mouse movement, wrapping around the rotation
+	$Camera3D.rotation.x = clamp($Camera3D.rotation.x, deg_to_rad(-45), deg_to_rad(45))
+	$Camera3D2.rotation.x = clamp($Camera3D2.rotation.x, deg_to_rad(-45), deg_to_rad(45))
+	
+	
 	mouse_rotation = Vector2.ZERO
 
 	move_and_slide()

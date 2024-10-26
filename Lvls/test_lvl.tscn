@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6aloxxgxmt4u"]
+[gd_scene load_steps=13 format=3 uid="uid://b6aloxxgxmt4u"]
 
 [ext_resource type="Script" path="res://Lvls/Initialisation.gd" id="1_d7ytj"]
 [ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="1_vw6uw"]
@@ -21,7 +21,11 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_rsxb0"]
 size = Vector3(100, 1, 100)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dutjt"]
+albedo_color = Color(0, 1, 1, 1)
+
 [sub_resource type="BoxMesh" id="BoxMesh_01ny6"]
+material = SubResource("StandardMaterial3D_dutjt")
 size = Vector3(100, 1, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e1gk7"]
@@ -95,4 +99,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 10)
 mesh = SubResource("BoxMesh_e1gk7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node/StaticBody3D2"]
+shape = SubResource("BoxShape3D_xcoqm")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Node/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/StaticBody3D2/StaticBody3D2"]
+mesh = SubResource("BoxMesh_e1gk7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/StaticBody3D2/StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.0582, -9.70318, 0)
 shape = SubResource("BoxShape3D_xcoqm")
