@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
 
-const SPEED = 25.0
+const SPEED = 15.0
 const JUMP_VELOCITY = 4.5
 
 const camera_angle = 45;
@@ -45,7 +45,6 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	
-		
 	transform.basis = transform.basis.rotated(Vector3.UP, -mouse_rotation.x * delta * mouse_sensitivity)
 	
 	var yval = -mouse_rotation.y * delta * mouse_sensitivity	
