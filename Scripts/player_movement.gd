@@ -5,6 +5,15 @@ const SPEED = 25.0
 const JUMP_VELOCITY = 4.5
 
 
+var mouse_rotation = Vector2(0,0)
+const mouse_sensitivity = 10
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		mouse_rotation = event.relative * 2*PI/360
+	
+	pass
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -24,5 +33,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+		
+	transform.basis = transform.basis.rotated(Vector3.UP, -mouse_rotation.x * delta * mouse_sensitivity)
+	$Camera3D.basis = $Camera3D.basis.rotated(Vector3.FORWARD, -mouse_rotation.y * delta * mouse_sensitivity)
+	$Camera3D2.basis = $Camera3D2.basis.rotated(Vector3.FORWARD, mouse_rotation.y * delta * mouse_sensitivity)
+	mouse_rotation = Vector2.ZERO
 
 	move_and_slide()
