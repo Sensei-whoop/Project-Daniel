@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6aloxxgxmt4u"]
+[gd_scene load_steps=11 format=3 uid="uid://b6aloxxgxmt4u"]
 
-[ext_resource type="Script" path="res://Lvls/Initialisation.gd" id="1_d7ytj"]
+[ext_resource type="Script" path="res://Scripts/Initialisation.gd" id="1_d7ytj"]
 [ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="1_vw6uw"]
-[ext_resource type="Script" path="res://Scripts/View_Split_Screen.gd" id="2_schm8"]
-[ext_resource type="PackedScene" uid="uid://dsegyheqahqpx" path="res://Other/central_bar.tscn" id="3_ixjl1"]
+[ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="3_ynlg4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mkdnn"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,33 +49,6 @@ mesh = SubResource("BoxMesh_01ny6")
 [node name="Player" parent="." instance=ExtResource("1_vw6uw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
-[node name="Camera Setup" type="GridContainer" parent="."]
-clip_contents = true
-offset_right = 1152.0
-offset_bottom = 1028.0
-columns = 2
-script = ExtResource("2_schm8")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="Camera Setup"]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 2
-
-[node name="SubViewport" type="SubViewport" parent="Camera Setup/SubViewportContainer"]
-handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 4
-
-[node name="Central Bar" parent="Camera Setup" instance=ExtResource("3_ixjl1")]
-layout_mode = 2
-
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="Camera Setup"]
-layout_mode = 2
-
-[node name="SubViewport2" type="SubViewport" parent="Camera Setup/SubViewportContainer2"]
-handle_input_locally = false
-size = Vector2i(2, 2)
-render_target_update_mode = 4
-
 [node name="Node" type="Node" parent="."]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node"]
@@ -96,3 +68,5 @@ mesh = SubResource("BoxMesh_e1gk7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node/StaticBody3D2"]
 shape = SubResource("BoxShape3D_xcoqm")
+
+[node name="Camera Setup" parent="." instance=ExtResource("3_ynlg4")]
