@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://csp22cb2ajs74"
-path="res://.godot/imported/handgun.glb-2930a2d8862accb9e6c181edd4ced099.scn"
+uid="uid://dyykix4b3pu2i"
+path="res://.godot/imported/duck-Cow-hybrid.glb-a80c869ffa6519d099f3a0962dd2d2db.scn"
 
 [deps]
 
-source_file="res://handgun.glb"
-dest_files=["res://.godot/imported/handgun.glb-2930a2d8862accb9e6c181edd4ced099.scn"]
+source_file="res://duck-Cow-hybrid.glb"
+dest_files=["res://.godot/imported/duck-Cow-hybrid.glb-a80c869ffa6519d099f3a0962dd2d2db.scn"]
 
 [params]
 
@@ -32,5 +32,5 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-gltf/naming_version=0
+gltf/naming_version=1
 gltf/embedded_image_handling=1

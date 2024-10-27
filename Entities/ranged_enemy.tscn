@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4eldokguvvxx"]
+
+[ext_resource type="Script" path="res://Scripts/ranged_enemy.gd" id="1_ttqik"]
+[ext_resource type="PackedScene" uid="uid://byohav0noravi" path="res://DanielTheDuck4.glb" id="2_thkt1"]
+[ext_resource type="Shape3D" uid="uid://dgcubos03d4uu" path="res://Enemy_View_Frustrum.tres" id="3_70fox"]
+[ext_resource type="PackedScene" uid="uid://csp22cb2ajs74" path="res://handgun.glb" id="4_o6xpp"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t5fse"]
+
+[node name="Ranged Enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_ttqik")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_t5fse")
+
+[node name="DanielTheDuck4" parent="." instance=ExtResource("2_thkt1")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="Area3D3" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -3.01992e-07, 0, 1, 0, 1.50996e-07, 0, -2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+shape = ExtResource("3_70fox")
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 2.0
+
+[node name="handgun" parent="." instance=ExtResource("4_o6xpp")]
+transform = Transform3D(-1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, 0.3, -1, -0.5)
+
+[connection signal="body_entered" from="Area3D3" to="." method="_on_area_3d_3_body_entered"]
+[connection signal="body_exited" from="Area3D3" to="." method="_on_area_3d_3_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

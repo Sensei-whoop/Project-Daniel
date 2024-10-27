@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://datb5jxyatq13"]
+[gd_scene load_steps=10 format=3 uid="uid://datb5jxyatq13"]
 
 [ext_resource type="Script" path="res://Scripts/Initialisation.gd" id="1_4sfg0"]
 [ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="1_fgs5g"]
 [ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="2_nbpvl"]
 [ext_resource type="PackedScene" uid="uid://dg43ifv8ofbwb" path="res://Entities/enemy.tscn" id="4_6uy8y"]
 [ext_resource type="PackedScene" uid="uid://bdjircr84upqa" path="res://Other/death.tscn" id="5_y4kbx"]
+[ext_resource type="PackedScene" uid="uid://d4eldokguvvxx" path="res://Entities/ranged_enemy.tscn" id="6_lnvgm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wabp8"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -120,6 +121,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -30, 1
 
 [node name="Death" parent="." instance=ExtResource("5_y4kbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5, -150)
+
+[node name="Ranged Enemy" parent="." instance=ExtResource("6_lnvgm")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.919435, -18.1073)
 
 [connection signal="player_died" from="Player" to="." method="_on_player_player_died"]
 [connection signal="player_fell" from="Death" to="." method="_on_death_player_fell"]
