@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/player_movement.gd" id="1_hm2fq"]
 [ext_resource type="PackedScene" uid="uid://bcrex8odwrso5" path="res://sword.glb" id="2_pvw12"]
-[ext_resource type="Shape3D" uid="uid://dgcubos03d4uu" path="res://Enemy_View_Frustrum.tres" id="3_j5cru"]
+[ext_resource type="Shape3D" path="res://Enemy_View_Frustrum.tres" id="3_j5cru"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_go28g"]
 

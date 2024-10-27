@@ -40,10 +40,10 @@ func take_damage(damage: int)->void:
 func _ready() -> void:
 	player_health = player_base_health
 	
-	cam1vector = basis.rotated(Vector3.UP, camera_angle) * Vector3.RIGHT
-	cam2vector = basis.rotated(Vector3.UP, -camera_angle) * Vector3.RIGHT
-	$Camera3D.basis = $Camera3D.basis.rotated(Vector3.UP, camera_angle)
-	$Camera3D2.basis = $Camera3D2.basis.rotated(Vector3.UP, -camera_angle)
+	cam1vector = basis.rotated(Vector3.UP, deg_to_rad(camera_angle)) * Vector3.RIGHT
+	cam2vector = basis.rotated(Vector3.UP, deg_to_rad(-camera_angle)) * Vector3.RIGHT
+	$Camera3D.basis = $Camera3D.basis.rotated(Vector3.UP, deg_to_rad(camera_angle))
+	$Camera3D2.basis = $Camera3D2.basis.rotated(Vector3.UP, deg_to_rad(-camera_angle))
 
 func _physics_process(delta: float) -> void:
 	if player_health <= 0 and not is_player_invincible:
