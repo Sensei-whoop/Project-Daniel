@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://ifcop7mpxs4p"]
+
+[ext_resource type="PackedScene" uid="uid://dgs60qwco7iqw" path="res://lvlTryout2.glb" id="1_sgj4w"]
+[ext_resource type="Script" path="res://Scripts/Initialisation.gd" id="2_exeu7"]
+[ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="2_jr6ka"]
+[ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="3_crdeh"]
+[ext_resource type="PackedScene" uid="uid://bdjircr84upqa" path="res://Other/death.tscn" id="5_l777a"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n36vd"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_3k74b"]
+sky_material = SubResource("ProceduralSkyMaterial_n36vd")
+
+[sub_resource type="Environment" id="Environment_lrde0"]
+background_mode = 2
+sky = SubResource("Sky_3k74b")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="lvlTryout2" instance=ExtResource("1_sgj4w")]
+script = ExtResource("2_exeu7")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_lrde0")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." index="13" instance=ExtResource("2_jr6ka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -195.772, 48.3497, 15.155)
+
+[node name="Camera Setup" parent="." index="14" instance=ExtResource("3_crdeh")]
+
+[node name="Death" parent="." index="15" instance=ExtResource("5_l777a")]
+transform = Transform3D(2.085, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5, 0)
+
+[connection signal="player_fell" from="Death" to="." method="_on_death_player_fell"]
