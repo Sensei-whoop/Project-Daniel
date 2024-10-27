@@ -90,6 +90,7 @@ size = Vector3(5, 10, 35)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Terrain/Blocks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -4, -32)
+use_collision = true
 size = Vector3(2, 13, 0.2)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Terrain/Blocks"]

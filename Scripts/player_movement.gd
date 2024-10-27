@@ -85,10 +85,6 @@ func _physics_process(delta: float) -> void:
 	$Camera3D.basis = $Camera3D.basis.rotated(cam1vector, -mouse_rotation.y * delta * mouse_sensitivity)
 	$Camera3D2.basis = $Camera3D2.basis.rotated(cam2vector, -mouse_rotation.y * delta * mouse_sensitivity)
 	mouse_rotation = Vector2.ZERO
-
-
-	if attack:
-		velocity += 3 * (transform.basis * Vector3.FORWARD)
 		
 	
 	horizontal_velocity = Vector3(velocity.x,0,velocity.z)
@@ -108,11 +104,10 @@ func _physics_process(delta: float) -> void:
 	if attack and len(attackable_enemies) > 0:
 		if attackable_enemies[0] == null:
 			attackable_enemies.remove_at(0)
-		if attackable_enemies[0].is_in_group("Enemy"):
+		elif attackable_enemies[0].is_in_group("Enemy"):
 			is_player_invincible = true
 
 			$Invulnerability_Timer.start()
-			print(attackable_enemies[0])
 			var enemy = attackable_enemies[0]
 			position = enemy.position + Vector3.UP
 			enemy.take_damage(1);
@@ -135,7 +130,6 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 	for i in range(len(attackable_enemies)-1):
 		if attackable_enemies[i] == body:
-
 			attackable_enemies.remove_at(i)
 
 	pass # Replace with function body.
