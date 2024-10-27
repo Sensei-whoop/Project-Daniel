@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-var velocityTing = 2.0
-var maxTime = 5.0
+var velocityTing = 5.0
+var maxTime = 2.0
 var timer = 0.0
 var platformSpeed = 2.0
 
