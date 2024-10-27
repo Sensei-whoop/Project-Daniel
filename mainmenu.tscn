@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://5byhxsmoovh0"]
+[gd_scene load_steps=5 format=3 uid="uid://dhvqi0mgj66fj"]
 
-[ext_resource type="Script" path="res://mainmenu.gd" id="1_j81sd"]
+[ext_resource type="Script" path="res://Scripts/mainmenu.gd" id="1_j81sd"]
 [ext_resource type="Texture2D" uid="uid://b21dmhxrspajc" path="res://IMG20241026165542.jpg" id="2_2iq4c"]
 
 [sub_resource type="Theme" id="Theme_h211y"]

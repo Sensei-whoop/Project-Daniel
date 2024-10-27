@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg43ifv8ofbwb"]
+
+[ext_resource type="Shape3D" uid="uid://dgcubos03d4uu" path="res://Enemy_View_Frustrum.tres" id="1_gg6qv"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_o854f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x47di"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4tiwr"]
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemy"]]
+script = ExtResource("1_o854f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_x47di")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4tiwr")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = ExtResource("1_gg6qv")

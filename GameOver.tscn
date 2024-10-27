@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5ga8jagxjicv"]
+
+[ext_resource type="Texture2D" uid="uid://b21dmhxrspajc" path="res://IMG20241026165542.jpg" id="1_bynff"]
+[ext_resource type="Script" path="res://Scripts/GameOverButton.gd" id="2_oyb44"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 621.0
+offset_bottom = 350.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1164.0
+offset_bottom = 665.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 75.0
+offset_right = 1111.0
+offset_bottom = 474.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "Game over HAHAHAHAHA"
+
+[node name="Img20241026165542" type="Sprite2D" parent="."]
+position = Vector2(586, 463)
+scale = Vector2(0.296795, 0.080649)
+texture = ExtResource("1_bynff")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 343.0
+offset_right = 839.0
+offset_bottom = 583.0
+theme_override_font_sizes/font_size = 50
+text = "Press to play again"
+script = ExtResource("2_oyb44")
