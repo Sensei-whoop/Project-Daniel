@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/moving_platform_x_direction.gd" id="3_etcho"]
 [ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="5_np40y"]
 [ext_resource type="PackedScene" uid="uid://bdjircr84upqa" path="res://Other/death.tscn" id="6_ph7x3"]
-[ext_resource type="PackedScene" uid="uid://dg43ifv8ofbwb" path="res://Entities/enemy.tscn" id="8_5wkgr"]
+[ext_resource type="PackedScene" path="res://Entities/ranged_enemy.tscn" id="7_wyew6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t62m2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -117,9 +117,6 @@ mesh = SubResource("BoxMesh_mdfwp")
 [node name="Death" parent="." instance=ExtResource("6_ph7x3")]
 transform = Transform3D(2.085, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("8_5wkgr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.37, 15.443, -0.441326)
-
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 34.5, 0, 0)
 use_collision = true
@@ -129,5 +126,8 @@ libraries = {
 "": SubResource("AnimationLibrary_0f7k0")
 }
 autoplay = "RESET"
+
+[node name="Ranged Enemy" parent="." instance=ExtResource("7_wyew6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.4387, 15.8859, 0)
 
 [connection signal="player_fell" from="Death" to="." method="_on_death_player_fell"]
