@@ -14,3 +14,11 @@ func _process(delta):
 	
 	
 	pass
+
+
+func _on_player_player_died() -> void:
+	get_tree().reload_current_scene()
+
+
+func _on_death_player_fell() -> void:
+	get_tree().reload_current_scene()

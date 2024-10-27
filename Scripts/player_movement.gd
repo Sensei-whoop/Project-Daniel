@@ -7,6 +7,9 @@ const JUMP_VELOCITY = 4.5
 const friction = 10
 const air_resistance = 2.4
 
+var player_base_health = 2
+var player_health = 2
+
 const camera_angle = 45;
 
 var mouse_rotation = Vector2(0,0)
@@ -15,6 +18,10 @@ const mouse_sensitivity = 10
 var cam1vector
 var cam2vector
 
+var is_player_invincible = false
+
+signal player_died()
+
 func _input(event):
 	if event is InputEventMouseMotion:
 		mouse_rotation = event.relative * 2*PI/360
@@ -22,8 +29,16 @@ func _input(event):
 	
 	pass
 
+
+func take_damage(damage: int)->void:
+	if $Invulnerability_Timer.is_stopped() == false or $AnimationPlayer.is_playing():
+		pass
+	if is_player_invincible:
+		pass
+	player_health -= damage
+
 func _ready() -> void:
-	
+	player_health = player_base_health
 	
 	cam1vector = basis.rotated(Vector3.UP, camera_angle) * Vector3.RIGHT
 	cam2vector = basis.rotated(Vector3.UP, -camera_angle) * Vector3.RIGHT
@@ -31,6 +46,12 @@ func _ready() -> void:
 	$Camera3D2.basis = $Camera3D2.basis.rotated(Vector3.UP, -camera_angle)
 
 func _physics_process(delta: float) -> void:
+	if player_health <= 0 and not is_player_invincible:
+		player_died.emit()
+
+	elif is_player_invincible:
+		player_health = player_base_health
+		
 	var horizontal_velocity = Vector3(velocity.x,0,velocity.z)
 	
 	# Add the gravity.
@@ -52,8 +73,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("attack"):
 		attack = true
 		$AnimationPlayer.play("Attack")
+		is_player_invincible = true
+
 		
-	if $AnimationPlayer.is_playing():
+	if not $AnimationPlayer.is_playing():
+		is_player_invincible = false
 		attack = false
 
 	
@@ -64,7 +88,10 @@ func _physics_process(delta: float) -> void:
 
 
 	if attack:
-		velocity += 50 * (transform.basis * Vector3.FORWARD)
+		velocity += 20 * (transform.basis * Vector3.FORWARD)
+		
+	
+	horizontal_velocity = Vector3(velocity.x,0,velocity.z)
 
 	if is_on_floor() and not direction:
 		velocity -= horizontal_velocity * friction * delta
@@ -78,4 +105,34 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
+	if attack and len(attackable_enemies) > 0 and attackable_enemies[0].is_in_group("Enemy"):
+		is_player_invincible = true
+
+		$Invulnerability_Timer.start()
+		print(attackable_enemies[0])
+		var enemy = attackable_enemies[0]
+		position = enemy.position
+		enemy.take_damage(1);
+
+	
+
 	move_and_slide()
+
+var attackable_enemies = Array([], TYPE_OBJECT, "Node", CharacterBody3D);
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body.is_in_group("Enemy"):
+		attackable_enemies.append(body)
+	pass # Replace with function body.
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	if not body.is_in_group("Enemy"):
+		pass
+
+	for i in range(len(attackable_enemies)-1):
+		if attackable_enemies[i] == body:
+
+			attackable_enemies.remove_at(i)
+
+	pass # Replace with function body.

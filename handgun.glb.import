@@ -3,7 +3,11 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
+<<<<<<< Updated upstream
 uid="uid://b1srivvsxrorq"
+=======
+uid="uid://d3n25dgqvb634"
+>>>>>>> Stashed changes
 path="res://.godot/imported/handgun.glb-2930a2d8862accb9e6c181edd4ced099.scn"
 
 [deps]

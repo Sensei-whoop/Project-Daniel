@@ -3,7 +3,11 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
+<<<<<<< Updated upstream
 uid="uid://bgvu47nxgysyb"
+=======
+uid="uid://r0vm4f0wfpkg"
+>>>>>>> Stashed changes
 path="res://.godot/imported/sword.glb-bba1ddeac6764dd28b73b19eac668ab0.scn"
 
 [deps]

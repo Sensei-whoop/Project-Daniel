@@ -19,6 +19,11 @@ config/icon="res://icon.svg"
 
 import/blender/enabled=false
 
+[global_group]
+
+Enemy=""
+Player=""
+
 [input]
 
 ui_left={
