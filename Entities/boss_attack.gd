@@ -9,6 +9,7 @@ var x = 0
 func _physics_process(delta: float) -> void:
 	if player_handle != null:
 		look_at(player_handle.position)
+		transform.basis = transform.basis.rotated(Vector3.UP, 90*2*PI/360)
 
 func send_player_handle(handle):
 	player_handle = handle
@@ -18,7 +19,9 @@ func shoot(i):
 		print(i.get_name())
 		var b = bullet.instantiate()
 		owner.add_child(b)
-		b.transform = i.get_transform()
+		b.transform = i.get_transform() * transform
+		b.transform.basis = transform.basis.rotated(Vector3.UP, -90*2*PI/360)
+		
 		pass
 
 	
