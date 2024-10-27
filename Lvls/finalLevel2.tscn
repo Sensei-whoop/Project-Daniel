@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://k2hur64qxtev"]
+[gd_scene load_steps=21 format=4 uid="uid://17obms7guidt"]
 
 [ext_resource type="PackedScene" uid="uid://bdjircr84upqa" path="res://Other/death.tscn" id="1_j62lr"]
 [ext_resource type="Script" path="res://Scripts/Initialisation.gd" id="1_krpk2"]
 [ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="2_cv8vb"]
 [ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="3_kerk7"]
+[ext_resource type="PackedScene" uid="uid://gpdctk60vwcv" path="res://Entities/final_boss_man.tscn" id="5_mrtu3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cyld6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -188,5 +189,8 @@ transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7, 69.677, 37.8147, -114.745)
 
 [node name="Fakefloor2" type="CSGBox3D" parent="."]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7, 69.677, 37.8147, -125.579)
+
+[node name="Final Boss Man" parent="." instance=ExtResource("5_mrtu3")]
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -170.496, 24.6797, 91.5467)
 
 [connection signal="player_fell" from="Death" to="." method="_on_death_player_fell"]

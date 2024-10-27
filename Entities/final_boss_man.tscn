@@ -1,0 +1,74 @@
+[gd_scene load_steps=9 format=3 uid="uid://gpdctk60vwcv"]
+
+[ext_resource type="Script" path="res://Entities/final_boss_man.gd" id="1_ypoyf"]
+[ext_resource type="PackedScene" uid="uid://dlodxwxwvjebn" path="res://duck-Cow-hybrid.glb" id="2_ve8da"]
+[ext_resource type="PackedScene" uid="uid://dx58ta1l1bndo" path="res://handgun.glb" id="3_ra4k8"]
+[ext_resource type="Script" path="res://Entities/boss_attack.gd" id="3_yfyny"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w2s0y"]
+radius = 2.0
+height = 8.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k6qfk"]
+size = Vector3(3, 7, 3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_d5pgb"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ocdac"]
+radius = 15.0
+
+[node name="Final Boss Man" type="CharacterBody3D"]
+script = ExtResource("1_ypoyf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_w2s0y")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, -3, 0)
+shape = SubResource("BoxShape3D_k6qfk")
+
+[node name="duck-Cow-hybrid" parent="." instance=ExtResource("2_ve8da")]
+
+[node name="Node" type="CharacterBody3D" parent="."]
+script = ExtResource("3_yfyny")
+
+[node name="handgun" parent="Node" instance=ExtResource("3_ra4k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2.5)
+
+[node name="handgun2" parent="Node" instance=ExtResource("3_ra4k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.75)
+
+[node name="handgun9" parent="Node" instance=ExtResource("3_ra4k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -2, -2.5)
+
+[node name="handgun10" parent="Node" instance=ExtResource("3_ra4k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, -1.75)
+
+[node name="handgun3" parent="Node" instance=ExtResource("3_ra4k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 2.5)
+
+[node name="handgun4" parent="Node" instance=ExtResource("3_ra4k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 1.75)
+
+[node name="handgun11" parent="Node" instance=ExtResource("3_ra4k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -2, 2.5)
+
+[node name="handgun12" parent="Node" instance=ExtResource("3_ra4k8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -2, 1.75)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node"]
+shape = SubResource("SphereShape3D_d5pgb")
+
+[node name="Timer" type="Timer" parent="Node"]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_ocdac")
+
+[connection signal="timeout" from="Node/Timer" to="Node" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
