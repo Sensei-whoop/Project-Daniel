@@ -94,7 +94,6 @@ size = Vector3(2, 13, 0.2)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Terrain/Blocks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, -47)
-use_collision = true
 size = Vector3(25, 0.2, 4)
 
 [node name="Walls" type="Node" parent="Terrain"]
@@ -105,14 +104,14 @@ use_collision = true
 size = Vector3(0.2, 13, 18)
 
 [node name="CSGBox3D19" type="CSGBox3D" parent="Terrain/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.167, -3.5, -47)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.167, -3.5, -46)
 use_collision = true
 size = Vector3(0.2, 13, 10)
 
 [node name="CSGBox3D15" type="CSGBox3D" parent="Terrain/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, -3.5, -31)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36, -3.5, -30)
 use_collision = true
-size = Vector3(0.2, 13, 42)
+size = Vector3(0.2, 13, 40)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Terrain/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, -3.5, -32.9)
@@ -140,7 +139,7 @@ use_collision = true
 size = Vector3(0.2, 13, 35)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Terrain/Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.5, -3.5, -52)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.5, -3.5, -50)
 use_collision = true
 size = Vector3(0.2, 13, 37)
 
