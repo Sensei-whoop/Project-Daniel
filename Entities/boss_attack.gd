@@ -14,12 +14,14 @@ func send_player_handle(handle):
 	player_handle = handle
 
 func shoot(i):
-	if i.type == Timer:
+	if i.get_name() != "Timer" and i.get_name() != "CollisionShape3D":
+		print(i.get_name())
+		var b = bullet.instantiate()
+		owner.add_child(b)
+		b.transform = i.get_transform()
 		pass
-	var b = bullet.instantiate()
-	owner.add_child(b)
 
-	b.transform = i.get_transform()
+	
 
 func base_attack()->void:
 	for i in get_children():

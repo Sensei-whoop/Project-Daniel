@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="2_nbpvl"]
 [ext_resource type="PackedScene" uid="uid://dg43ifv8ofbwb" path="res://Entities/enemy.tscn" id="4_6uy8y"]
 [ext_resource type="PackedScene" uid="uid://bdjircr84upqa" path="res://Other/death.tscn" id="5_y4kbx"]
-[ext_resource type="PackedScene" path="res://Entities/ranged_enemy.tscn" id="6_lnvgm"]
+[ext_resource type="PackedScene" uid="uid://d4eldokguvvxx" path="res://Entities/ranged_enemy.tscn" id="6_lnvgm"]
 [ext_resource type="Script" path="res://Lvls/next_level_1.gd" id="7_ujl3w"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wabp8"]

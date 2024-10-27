@@ -191,6 +191,6 @@ transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7, 69.677, 37.8147, -114.745)
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 7, 69.677, 37.8147, -125.579)
 
 [node name="Final Boss Man" parent="." instance=ExtResource("5_mrtu3")]
-transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -170.496, 24.6797, 91.5467)
+transform = Transform3D(-2.18557e-07, 0, -5, 0, 5, 0, 5, 0, -2.18557e-07, -170.598, 31.8231, 88.4954)
 
 [connection signal="player_fell" from="Death" to="." method="_on_death_player_fell"]
