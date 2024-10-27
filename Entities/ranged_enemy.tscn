@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/ranged_enemy.gd" id="1_ttqik"]
 [ext_resource type="PackedScene" uid="uid://byohav0noravi" path="res://DanielTheDuck4.glb" id="2_thkt1"]
 [ext_resource type="Shape3D" uid="uid://dgcubos03d4uu" path="res://Enemy_View_Frustrum.tres" id="3_70fox"]
-[ext_resource type="PackedScene" uid="uid://csp22cb2ajs74" path="res://handgun.glb" id="4_o6xpp"]
+[ext_resource type="PackedScene" uid="uid://dx58ta1l1bndo" path="res://handgun.glb" id="4_o6xpp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_t5fse"]
 

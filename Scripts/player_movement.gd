@@ -136,7 +136,3 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 			attackable_enemies.remove_at(i)
 
 	pass # Replace with function body.
-
-
-func _on_death_player_fell() -> void:
-	pass # Replace with function body.
