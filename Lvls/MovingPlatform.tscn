@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://csf4o7vxnlnbo"]
+[gd_scene load_steps=16 format=3 uid="uid://csf4o7vxnlnbo"]
 
 [ext_resource type="Script" path="res://Scripts/Initialisation.gd" id="1_cbjq5"]
 [ext_resource type="PackedScene" uid="uid://c4scmsxqblxxm" path="res://Entities/Player.tscn" id="2_2ybw0"]
 [ext_resource type="Script" path="res://Scripts/moving_platform_z_direction.gd" id="2_d1jt5"]
 [ext_resource type="Script" path="res://Scripts/moving_platform_x_direction.gd" id="3_etcho"]
-[ext_resource type="Script" path="res://Scripts/moving_platform_y_direction.gd" id="4_d867c"]
 [ext_resource type="PackedScene" uid="uid://cyf88uaf00lc1" path="res://Other/camera_setup.tscn" id="5_np40y"]
 [ext_resource type="PackedScene" uid="uid://bdjircr84upqa" path="res://Other/death.tscn" id="6_ph7x3"]
 [ext_resource type="PackedScene" uid="uid://dg43ifv8ofbwb" path="res://Entities/enemy.tscn" id="8_5wkgr"]
@@ -25,6 +24,45 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_vbi4t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_mdfwp"]
+
+[sub_resource type="Animation" id="Animation_jvcf0"]
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(34.5, 0, 0), Vector3(34.5, 14, 0), Vector3(34.5, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7nva3"]
+resource_name = "Rise_and_Lower"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(34.5, 0, 0), Vector3(34.5, 14, 0), Vector3(34.5, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0f7k0"]
+_data = {
+"RESET": SubResource("Animation_jvcf0"),
+"Rise_and_Lower": SubResource("Animation_7nva3")
+}
 
 [node name="Opening Level" type="Node3D"]
 script = ExtResource("1_cbjq5")
@@ -63,16 +101,6 @@ shape = SubResource("BoxShape3D_vbi4t")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlatformXDirection"]
 mesh = SubResource("BoxMesh_mdfwp")
 
-[node name="MovingPlatformYDirection" type="CharacterBody3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 34.5, 0.5, 0)
-script = ExtResource("4_d867c")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatformYDirection"]
-shape = SubResource("BoxShape3D_vbi4t")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlatformYDirection"]
-mesh = SubResource("BoxMesh_mdfwp")
-
 [node name="NonMovingBlock2" type="CharacterBody3D" parent="."]
 transform = Transform3D(5.895, 0, 0, 0, 1, 0, 0, 0, 10, 38, 14, 0)
 
@@ -91,5 +119,14 @@ transform = Transform3D(2.085, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.5, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("8_5wkgr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.37, 15.443, -0.441326)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 34.5, 0, 0)
+
+[node name="MoveYPlatform" type="AnimationPlayer" parent="CSGBox3D"]
+libraries = {
+"": SubResource("AnimationLibrary_0f7k0")
+}
+autoplay = "RESET"
 
 [connection signal="player_fell" from="Death" to="." method="_on_death_player_fell"]
