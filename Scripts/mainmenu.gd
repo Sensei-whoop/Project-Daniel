@@ -9,7 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Label.rotation += delta * rotateSpeed;
+	$danielGame.rotation += delta * rotateSpeed;
 
 
 func _on_start_button_pressed() -> void:
@@ -22,3 +22,4 @@ func _on_quit_button_pressed() -> void:
 
 func _on_quit_button_mouse_entered() -> void:
 	$VBoxContainer/quitButton.position.y = randf_range(0, get_viewport().get_visible_rect().size.y)
+	$cantQuit.visible = true;
