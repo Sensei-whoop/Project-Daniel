@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4scmsxqblxxm"]
+[gd_scene load_steps=10 format=3 uid="uid://c4scmsxqblxxm"]
 
 [ext_resource type="Script" path="res://Scripts/player_movement.gd" id="1_hm2fq"]
 [ext_resource type="PackedScene" uid="uid://bcrex8odwrso5" path="res://sword.glb" id="2_pvw12"]
 [ext_resource type="Shape3D" uid="uid://dgcubos03d4uu" path="res://Enemy_View_Frustrum.tres" id="3_j5cru"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_go28g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_686e0"]
+albedo_color = Color(1, 0.658824, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_txj1n"]
 
@@ -82,6 +85,7 @@ script = ExtResource("1_hm2fq")
 shape = SubResource("CapsuleShape3D_go28g")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_686e0")
 mesh = SubResource("CapsuleMesh_txj1n")
 
 [node name="Camera3D2" type="Camera3D" parent="."]
