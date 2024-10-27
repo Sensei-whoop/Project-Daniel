@@ -75,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		$AnimationPlayer.play("Attack")
 		is_player_invincible = true
 
-		
+	
 	if not $AnimationPlayer.is_playing():
 		is_player_invincible = false
 		attack = false
@@ -105,14 +105,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	if attack and len(attackable_enemies) > 0 and attackable_enemies[0].is_in_group("Enemy"):
-		is_player_invincible = true
+	if attack and len(attackable_enemies) > 0 and attackable_enemies[0] != null:
+		if attackable_enemies[0].is_in_group("Enemy"):
+			is_player_invincible = true
 
-		$Invulnerability_Timer.start()
-		print(attackable_enemies[0])
-		var enemy = attackable_enemies[0]
-		position = enemy.position
-		enemy.take_damage(1);
+			$Invulnerability_Timer.start()
+			print(attackable_enemies[0])
+			var enemy = attackable_enemies[0]
+			position = enemy.position
+			enemy.take_damage(1);
 
 	
 
