@@ -106,7 +106,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 
 shape = ExtResource("3_j5cru")
 
 [node name="Invulnerability_Timer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.5
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
