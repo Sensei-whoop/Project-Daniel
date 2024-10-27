@@ -88,7 +88,7 @@ func _physics_process(delta: float) -> void:
 
 
 	if attack:
-		velocity += 20 * (transform.basis * Vector3.FORWARD)
+		velocity += 3 * (transform.basis * Vector3.FORWARD)
 		
 	
 	horizontal_velocity = Vector3(velocity.x,0,velocity.z)
@@ -105,14 +105,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	if attack and len(attackable_enemies) > 0 and attackable_enemies[0] != null:
+	if attack and len(attackable_enemies) > 0:
+		if attackable_enemies[0] == null:
+			attackable_enemies.remove_at(0)
 		if attackable_enemies[0].is_in_group("Enemy"):
 			is_player_invincible = true
 
 			$Invulnerability_Timer.start()
 			print(attackable_enemies[0])
 			var enemy = attackable_enemies[0]
-			position = enemy.position
+			position = enemy.position + Vector3.UP
 			enemy.take_damage(1);
 
 	
